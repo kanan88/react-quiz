@@ -43,6 +43,14 @@ const reducer = (state, action) => {
         highScore:
           state.points > state.highScore ? state.points : state.highScore,
       };
+    case 'RESTART':
+      return {
+        ...state,
+        status: 'ready', // 'loading', 'error', 'ready', 'active', 'finished'
+        index: 0,
+        answer: null,
+        points: 0,
+      };
     case 'NEW_ANSWER':
       const question = state.questions.at(state.index);
 
@@ -120,6 +128,7 @@ const App = () => {
             points={points}
             maxPoints={maxPoints}
             highScore={highScore}
+            dispatch={dispatch}
           />
         )}
       </Main>
