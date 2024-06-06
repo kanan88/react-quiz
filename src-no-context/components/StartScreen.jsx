@@ -1,15 +1,16 @@
-import { useQuiz } from "../contexts/QuizContext";
-
-const StartScreen = () => {
-  const { questions, start } = useQuiz();
-
-  const numQuestions = questions.length;
-
+const StartScreen = ({ numQuestions, dispatch }) => {
   return (
     <div className="start">
       <h2>Welcome to the React Quiz!</h2>
       <h3>{numQuestions} questions to test your React mastery</h3>
-      <button className="btn btn-ui" onClick={start}>
+      <button
+        className="btn btn-ui"
+        onClick={() =>
+          dispatch({
+            type: 'START',
+          })
+        }
+      >
         Let's start!
       </button>
     </div>

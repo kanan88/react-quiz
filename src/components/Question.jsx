@@ -1,19 +1,14 @@
-import Options from './Options';
+import { useQuiz } from "../contexts/QuizContext";
+import Options from "./Options";
 
-const Question = ({
-  question: { question, options, points, correctOption },
-  dispatch,
-  answer,
-}) => {
+const Question = () => {
+  const { questions, index } = useQuiz();
+  const question = questions[index];
+
   return (
     <div>
-      <h4>{question}</h4>
-      <Options
-        options={options}
-        dispatch={dispatch}
-        answer={answer}
-        correctOption={correctOption}
-      />
+      <h4>{question.question}</h4>
+      <Options />
     </div>
   );
 };

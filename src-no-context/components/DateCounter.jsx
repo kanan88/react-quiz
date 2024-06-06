@@ -1,22 +1,22 @@
-import { useReducer } from "react";
+import { useReducer } from 'react';
 
 const reducer = (state, action) => {
   console.log(state, action);
 
   switch (action.type) {
-    case "inc":
+    case 'inc':
       return { ...state, count: state.count + state.step };
 
-    case "dec":
+    case 'dec':
       return { ...state, count: state.count + state.step };
 
-    case "setCount":
+    case 'setCount':
       return { ...state, count: action.payload };
 
-    case "setStep":
+    case 'setStep':
       return { ...state, step: action.payload };
 
-    case "reset":
+    case 'reset':
       return {
         ...state,
         count: 0,
@@ -42,23 +42,23 @@ function DateCounter() {
   date.setDate(date.getDate() + count);
 
   const dec = function () {
-    dispatch({ type: "dec" });
+    dispatch({ type: 'dec' });
   };
 
   const inc = function () {
-    dispatch({ type: "inc" });
+    dispatch({ type: 'inc' });
   };
 
   const defineCount = function (e) {
-    dispatch({ type: "setCount", payload: +e.target.value });
+    dispatch({ type: 'setCount', payload: +e.target.value });
   };
 
   const defineStep = function (e) {
-    dispatch({ type: "setStep", payload: +e.target.value });
+    dispatch({ type: 'setStep', payload: +e.target.value });
   };
 
   const reset = function () {
-    dispatch({ type: "reset" });
+    dispatch({ type: 'reset' });
   };
 
   return (
